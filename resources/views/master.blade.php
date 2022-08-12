@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title >REPORTING RSUDWALED</title>
+  <title>REPORTING RSUDWALED</title>
   <link rel="shortcut icon" href="{{asset('dist/img/logo-rs-32x32.png')}}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,6 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
+  @guest
+  @endguest
+  @auth
   <div class="wrapper">
 
     <!-- Navbar -->
@@ -65,18 +68,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-          </div>
+        
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
-            
-           
+          <a href="#" class="d-block">
+          <img src="{{ asset('dist/img/repot.png') }}" class="brand-image mr-3">{{ Auth::user()->username }}</a>
+      
+          
+
+
           </div>
-    
+
         </div>
-        <div><a class="btn btn-primary" href="{{ route('password') }}">Change Password</a></div>
-          <div> <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a></div>
+   
 
 
 
@@ -95,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item menu-open">
-              <a href="http://127.0.0.1:8000/" class="nav-link active">
+              <a href="{{ route('index') }}" class="nav-link active">
                 <i class="nav-icon fas fa-book"></i>
 
                 <p>
@@ -104,35 +107,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
               <ul class="nav nav-treeview">
-              <!-- 
+                
             <li class="nav-item">
-                <a href="http://127.0.0.1:8000/lskbir" class="nav-link">
+                <a href="{{ route('lskbir') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>LAPORAN SENSUS KUNJUNGAN BULANAN IGD REKAP</p>
+                  <p>LSKBIR</p>
                 </a>
               </li>
            
-          </li> -->
+          </li>
+                <li class="nav-item">
+                  <a href="{{ route('lbkpigd') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>LBKPIGD</p>
+                  </a>
+                </li>
+            </li>
             <li class="nav-item">
-              <a href="/lbkpigd" class="nav-link">
+              <a href="{{ route('ldmri') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>LBKPIGD</p>
+                <p>LDMRI</p>
               </a>
             </li>
-</li>
-            <li class="nav-item">
-                <a href="http://127.0.0.1:8000/ldmri" class="nav-link">
+               <li class="nav-item">
+                <a href="{{ route('lbkpi') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>LAPORAN DIAGNOSA MORBIDITAS IGD</p>
+                  <p>LBKPI</p>
                 </a>
               </li>
-  <!--        <li class="nav-item">
-                <a href="http://127.0.0.1:8000/lbkpig" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>LAPORAN BULANAN KUNJUNGAN PASIEN IGD</p>
-                </a>
-              </li>
-          </li>
+        <!--       </li>
               <li class="nav-item">
                 <a href="http://127.0.0.1:8000/rkppi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -141,11 +144,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
            
            -->
-           </li>
+            </li>
+
+            
 
 
 
           </ul>
+          <li class="nav-item">
+              <a href="{{ route('password') }}" class="nav-link">
+                <i class="nav-icon fa fa-lock"></i>
+                <p>
+                  CHANGE PASSWORD
+
+                </p>
+              </a>
+            </li>
+          <li class="nav-item">
+              <a href="{{ route('logout') }}" class="nav-link">
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>
+                  LOGOUT
+
+                </p>
+              </a>
+            </li>
           </li>
 
           </ul>
@@ -188,18 +211,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="{{ asset('dist/js/jquery-3.js') }}"></script>
   <script src="{{ asset('dist/js/jquery-ui.min.js') }}"></script>
   <!-- jQuery -->
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+  <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 
 
   <!-- jQuery -->
   <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
   <!-- Bootstrap 4 -->
   <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
- 
+
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
   <script src="{{ asset('dist/js/bootstrap-datepicker.js') }}"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script> -->
@@ -225,5 +248,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   @yield('js')
 </body>
-
+@endauth
 </html>

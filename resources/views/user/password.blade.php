@@ -1,5 +1,6 @@
-@extends('app')
+@extends('master')
 @section('content')
+<div class="col-md-5">
 <div class="row">
     <div class="col-md-6">
         @if(session('success'))
@@ -26,9 +27,10 @@
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Change</button>
-                <a class="btn btn-danger" href="{{ route('home') }}">Back</a>
+                <a class="btn btn-danger" href="{{ route('index') }}">Back</a>
             </div>
         </form>
     </div>
+</div>
 </div>
 @endsection

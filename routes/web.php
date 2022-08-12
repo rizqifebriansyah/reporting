@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LbkpigdController;
 use App\Http\Controllers\LdmriController;
+use App\Http\Controllers\LskbirController;
+use App\Http\Controllers\LbkpiController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -17,8 +19,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
-})->name('home');
+    return view('user.login', ['title' => '']);
+})->name('user.login');
 
 Route::get('index', function () {
     return view('index', ['title' => 'index']);
@@ -39,5 +41,10 @@ Route::get('lbkpigd', [LbkpigdController::class, 'index'])->name('lbkpigd');
 Route::post('caridata', [LbkpigdController::class, 'coba'])->name('caridata');
 
 Route::get('ldmri', [LdmriController::class, 'index'])->name('ldmri');
-Route::post('caridiagnosa', [LdmriController::class, 'cari'])->name('caridiagnosa');
+Route::post('caridatadiagnosa', [LdmriController::class, 'cari'])->name('caridatadiagnosa');
 
+Route::get('lskbir', [LskbirController::class, 'index'])->name('lskbir');
+Route::post('caridatasensus', [LskbirController::class, 'carisensus'])->name('caridatasensus');
+
+Route::get('lbkpi', [LbkpiController::class, 'index'])->name('lbkpi');
+Route::post('caridataigd', [LbkpiController::class, 'cariigd'])->name('caridataigd');

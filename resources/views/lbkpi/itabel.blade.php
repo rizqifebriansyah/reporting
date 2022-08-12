@@ -1,41 +1,47 @@
 @guest
 @endguest
 @auth
-<table class="table table-bordered mt-3" id='table-list'>
+<table class="table table-bordered mt-3" align="right" id='table-list'>
     <thead>
         <tr>
-            <th>NO</th>
-            <th>TANGGAL</th>
-            <th>NO REKAMEDIS</th>
-            <th>NAMA PASIEN</th>
-            <th>DIAGNOSA</th>
-            <th>LAKI-LAKI</th>
-            <th>PERPENJAMIN</th>
-            <th>BPJS</th>
-            <th>PNS</th>
-            <th>ASKES LAIN</th>
-            <th>BAYAR SENDIRI</th>
+            <th rowspan="2" style="vertical-align: middle;">NO</th>
+            <th rowspan="2" style="vertical-align: middle;">PENJAMIN</th>
+            <th rowspan="2" style="vertical-align: middle;">JENIS_PELAYANAN</th>
+
+            <th colspan="4" style="vertical-align: middle-center;">PASIEN INSTALASI GAWAT DARURAT </th>
+            <th rowspan="2" style="vertical-align: middle;">TOTALJENIS_PELAYANAN</th>
         </tr>
+
+        <tr>
+
+            <th>BARU</th>
+            <th>LAMA</th>
+            <th>RUJUKAN</th>
+            <th>DIRUJUK</th>
+        </tr>
+
+
     </thead>
     <tbody>
         @php $i=1 @endphp
-        @foreach ($pasien as $p)
+        @foreach ($igd as $g)
         <tr>
             <td> {{$i++}}</td>
-            <td><strong>{{ $p->TGL }}</strong></td>
-            <td>{{ $p->no_rm }}</td>
-            <td>{{ $p->NAMA_PASIEN }}</td>
-            <td>{{ $p->DIAGNOSA }}</td>
-            <td>{{ $p->L }}</td>
-            <td>{{ $p->P }}</td>
-            <td>{{ $p->BPJS }}</td>
-            <td>{{ $p->PNS }}</td>
-            <td>{{ $p->ASKESLAIN }}</td>
-            <td>{{ $p->BAYARSENDIRI }}</td>
-            @endforeach
+            <td>{{ $g->PENJAMIN }}</td>
+            <td>{{ $g->JENIS_PELAYANAN }}</td>
+            <td>{{ $g->PASIEN_BARU }}</td>
+            <td>{{ $g->PASIEN_LAMA }}</td>
+            <td>{{ $g->PASIEN_RUJUKAN }}</td>
+            <td>{{ $g->PASIEN_DIRUJUK }}</td>
+            <td>{{ $g->TOTALJENIS_PELAYANAN }}</td>
         </tr>
+        @endforeach
+
+
     </tbody>
 </table>
+
+
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>

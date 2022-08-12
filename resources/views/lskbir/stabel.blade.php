@@ -1,41 +1,45 @@
 @guest
 @endguest
 @auth
-<table class="table table-bordered mt-3" id='table-list'>
-    <thead>
-        <tr>
-            <th>NO</th>
-            <th>TANGGAL</th>
-            <th>NO REKAMEDIS</th>
-            <th>NAMA PASIEN</th>
-            <th>DIAGNOSA</th>
-            <th>LAKI-LAKI</th>
-            <th>PERPENJAMIN</th>
-            <th>BPJS</th>
-            <th>PNS</th>
-            <th>ASKES LAIN</th>
-            <th>BAYAR SENDIRI</th>
-        </tr>
-    </thead>
-    <tbody>
-        @php $i=1 @endphp
-        @foreach ($pasien as $p)
+
+<table class="table table-bordered mt-3" align="right" id='table-list'>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th >JENIS PELAYANAN</th>
+                    <th >RUJUKAN</th>
+                    <th >NON RUJUKAN</th>
+                    <th >DIRAWAT</th>
+                    <th >RUJUK</th>
+                    <th >PELAYANAN PULANG</th>
+                    <th >MATI PRA PERAWATAN</th>
+                    <th >DOA</th>
+                    <th >JUMLAH PASIEN</th>
+                </tr>
+               
+            </thead>
+            <tbody>
+            @php $i=1 @endphp
+        @foreach ($sensus as $s)
         <tr>
             <td> {{$i++}}</td>
-            <td><strong>{{ $p->TGL }}</strong></td>
-            <td>{{ $p->no_rm }}</td>
-            <td>{{ $p->NAMA_PASIEN }}</td>
-            <td>{{ $p->DIAGNOSA }}</td>
-            <td>{{ $p->L }}</td>
-            <td>{{ $p->P }}</td>
-            <td>{{ $p->BPJS }}</td>
-            <td>{{ $p->PNS }}</td>
-            <td>{{ $p->ASKESLAIN }}</td>
-            <td>{{ $p->BAYARSENDIRI }}</td>
+            <td>{{ $s->JENIS_PELAYANAN }}</td>
+            <td>{{ $s->RUJUKAN }}</td>
+            <td>{{ $s->NON_RUJUKAN }}</td>
+            <td>{{ $s->DIRAWAT }}</td>
+            <td>{{ $s->RUJUK }}</td>
+            <td>{{ $s->PELAYANAN_PULANG }}</td>
+            <td>{{ $s->MATI_PRA_PERAWATAN }}</td>
+            <td>{{ $s->DOA }}</td>
+            <td>{{ $s->JUMLAH_PASIEN }}</td>
+            </tr>       
             @endforeach
-        </tr>
-    </tbody>
-</table>
+     
+
+            </tbody>
+        </table>
+
+        
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>

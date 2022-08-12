@@ -16,6 +16,7 @@
     <!-- Bootstrap CSS -->
     
     <title>@yield('title', $title)</title>
+    <link rel="shortcut icon" href="{{asset('dist/img/logo-rs-32x32.png')}}" type="image/x-icon">
 </head>
 
 <body>
