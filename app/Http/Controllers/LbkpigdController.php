@@ -17,6 +17,7 @@ class LbkpigdController extends Controller
 
         $end = Carbon::now()->endOfMonth()->format('Y-m-d H:i:s');
         $pasien = DB::select("CALL LAPORAN_BULANAN_KUNJUNGAN_PASIEN_IGD_DETAIL('$start','$end','1002')");
+  
         return view('lbkpigd.index', ['pasien'=> $pasien]);
     }
 

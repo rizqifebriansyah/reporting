@@ -2,8 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LbkpigdController;
+use App\Http\Controllers\LptukjController;
+use App\Http\Controllers\LptubController;
+use App\Http\Controllers\LptubdController;
+use App\Http\Controllers\LptupaController;
 use App\Http\Controllers\LdmriController;
+use App\Http\Controllers\LskbirController;
+use App\Http\Controllers\LbkpiController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +24,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
-})->name('home');
+    return view('user.login', ['title' => '']);
+})->name('user.login');
 
 Route::get('index', function () {
     return view('index', ['title' => 'index']);
@@ -39,5 +46,26 @@ Route::get('lbkpigd', [LbkpigdController::class, 'index'])->name('lbkpigd');
 Route::post('caridata', [LbkpigdController::class, 'coba'])->name('caridata');
 
 Route::get('ldmri', [LdmriController::class, 'index'])->name('ldmri');
-Route::post('caridiagnosa', [LdmriController::class, 'cari'])->name('caridiagnosa');
+Route::post('caridatadiagnosa', [LdmriController::class, 'cari'])->name('caridatadiagnosa');
 
+Route::get('lskbir', [LskbirController::class, 'index'])->name('lskbir');
+Route::post('caridatasensus', [LskbirController::class, 'carisensus'])->name('caridatasensus');
+
+Route::get('lbkpi', [LbkpiController::class, 'index'])->name('lbkpi');
+Route::post('caridataigd', [LbkpiController::class, 'cariigd'])->name('caridataigd');
+
+Route::get('lptukj', [LptukjController::class, 'index'])->name('lptukj');
+Route::post('caridatakm', [LptukjController::class, 'carikamar'])->name('caridatakm');
+Route::get('pdf', [LptukjController::class, 'cetak_pdf'])->name('pdf');
+Route::get('excel', [LptukjController::class, 'cetak_excel'])->name('excel'); 
+Route::get('cetakkamar/{tglawal}/{tglakhir}', [LptukjController::class, 'cetak_pdf2']);
+
+
+Route::get('lptub', [LptubController::class, 'index'])->name('lptub');
+Route::post('caridatabim', [LptubController::class, 'caribim'])->name('caridatabim');
+
+Route::get('lptupa', [LptupaController::class, 'index'])->name('lptupa');
+Route::post('caridatapa', [LptupaController::class, 'caripa'])->name('caridatapa');
+
+Route::get('lptubd', [LptubdController::class, 'index'])->name('lptubd');
+Route::post('caridatabd', [LptubdController::class, 'caribd'])->name('caridatabd');

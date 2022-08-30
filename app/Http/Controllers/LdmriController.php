@@ -20,7 +20,7 @@ class LdmriController extends Controller
     }
 
     public function cari(Request $request){
-        $diagnosa = DB::select("CALL SP_LAPORAN_DIAGNOSA_MORBIDITAS_RAJAL_IGD('$request->tglawal','$request->tglakhir','1002')");
-        return view('ldmri.vtabel', ['diagnosa'=> $diagnosa]);
+        $diagnosa = DB::select("CALL SP_LAPORAN_DIAGNOSA_MORBIDITAS_RAJAL_IGD('$request->tglawal','$request->tglakhir')");
+        return view('ldmri.dtabel', ['diagnosa'=> $diagnosa]);
     }
 }
